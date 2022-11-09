@@ -6,11 +6,11 @@ __Kelas: PBP-A__
 
 <hr>
 
-# PBP TUGAS 7
-Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
+# Tugas 7
+Mata kuliah Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
 # Deskripsi Tugas
-Mengimplementasikan konsep beberapa elemen dasar pada Flutter.
+Mengimplementasikan beberapa konsep elemen dasar pada Flutter.
 
 # Jawaban
 ## Perbedaan stateless widget dan stateful widget
@@ -30,7 +30,7 @@ _Stateless widget_ adalah _widget_ yang bersifat statis, tidak memiliki _state_ 
 * `FloatingActionButton`, _widget build-in_ berupa _button_ yang berfungsi sebagai _trigger_ suatu aksi.
 
 
-## Fungsi `setState()?` dan variabel yang terdampak fungsi tersebut
+## Fungsi `setState()` dan variabel yang terdampak fungsi tersebut
 
 Fungsi `setState()` memiliki fungsi untuk men-_trigger_ sebuah _stateful widget_ bahwa telah terjadi perubahan atau perbaharuan objek pada _state_. Aplikasi akan melakukan _rebuild_ pada _widget_ tersebut. `setState()` hanya dapat digunakan pada _stateful widget_. Variabel yang terdampak fungsi `setState()` pada tugas ini adalah variabel `_counter`. Aplikasi akan memperbarui tampilan `_counter` dan menghilangkan _decrement button_ ketika state `_counter` bernilai lebih dari nol.
 
