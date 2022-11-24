@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'drawer.dart';
+import 'package:counter_7/drawer.dart';
 
 // Budget class
 class Budget {

@@ -6,16 +6,16 @@ __Kelas: PBP-A__
 
 <hr>
 
-# Tugas 8
+# Tugas 9
 Mata kuliah Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
 
 # Deskripsi Tugas
-Membuat aplikasi _budget tracking app_ sederhana.
+Mengintegrasikan aplikasi _mywatchlist_ pada tugas 3 Django ke Flutter.
 
 # Jawaban
-## Perbedaan `Navigator.push` dan `Navigator.pushReplacement`
+## Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
 
-_Class_ `Navigator` digunakan untuk melakukan _routing_ pada aplikasi Flutter. _Class_ `Navigator` menggunakan konsep _stack_. `Navigator.push` adalah _method_ yang digunakan untuk berpindah ke halaman lain dengan menumpuknya ke paling atas. `Navigator.pushReplacement` memiliki konsep yang sama, tetapi akan mengganti _routing_ paling atas dengan yang baru. Perbedaannya adalah pada `push` hanya akan menumpuk dan tidak menghapus. Sementara pada `pushReplacement` akan menghapus _routing_ paling atas dan menggantinya dengan yang baru.
+Ya, pengambilan data JSON tanpa membuat model dapat dilakukan. JSON merupakan _object_ yang terdiri dari pasangan _key_ dan _value_. Pada bahasa pemrograman Dart, JSON serupa dengan Map. Pengambilan data tanpa membuat model tidak terlalu disarankan karena dengan adanya model dapat mengurangi kesalahan pengambilan atau pengiriman data melalui http request.
 
 
 ## Widget yang digunakan dalam tugas ini beserta fungsinya
@@ -34,30 +34,21 @@ _Class_ `Navigator` digunakan untuk melakukan _routing_ pada aplikasi Flutter. _
 * `Form`, sebagai container untuk form field.
 * `DropdownButtonFormField`, membuat widget drop down button.
 * `SizedBox`, membuat fixed sized box.
+* `FutureBuilder`
+* `GestureDetector`
 
 
-## Jenis-jenis _event_ yang ada pada Flutter
+## Mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter
 
-* `onPressed`
-* `onSaved`
-* `onRefresh`
-* `onLongPress`
-* `onHover`
-* `onTap`
-* `onSubmitted`
-* `onDoubleTap`
-* `onFocusChange`
-* `onPointerMove`
-
-
-## Cara kerja `Navigator` dalam "mengganti" halaman pada aplikasi Flutter
-
-_Widget_ `Navigator` menggunakan konsep stack, last in first out (LIFO). Elemen paling atas menunjukkan halaman yang sedang muncul pada aplikasi. Setelah mendefinisikan _route_ (tujuan ke halaman baru), `navigator` menggunakan method seperti `pop`, `push`, atau sebagainya untuk menavigasikan aplikasi ke halaman _routing_.
+* Membuat fungsi http request dengan method `GET` secara asinkronus
+* Melakukan parsing `jsonDecode()` yang akan mengubah response type dari string ke JSON
+* Mengubah object JSON ke sebuah object model
+* Menggunakan _widget_ `FutureBuilder` yang akan menampilkan _widgets_ data yang telah menjadi object
 
 
 ## Cara implementasi checklist
 
-* Membuat file `budgetForm.dart` berisi class model untuk budget (judul, nominal, jenis, dan tanggal) dan form fields: `TextFormField` untuk judul dan nominal budget; `DropownButtonFormField` untuk jenis budget; dan `showDatePicker` untuk tanggal.
+* Membuat dua file baru, yaitu watchList dan watchListDetail
 * Membuat file `budgetList.dart` yang mengambil data budget dari list pada form dan menampilkan daftar budget dalam bentuk cards.
 * Membuat file `drawer.dart` untuk drawer menu yang berisi navigasi ke laman counter_7, laman form menambahkan budget, dan laman tampilan daftar budget.
 * Melakukan import file `drawer.dart` ke file `main.dart`, `budgetForm.dart`, dan `budgetList.dart`.
