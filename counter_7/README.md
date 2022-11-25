@@ -34,8 +34,10 @@ Ya, pengambilan data JSON tanpa membuat model dapat dilakukan. JSON merupakan _o
 * `Form`, sebagai container untuk form field.
 * `DropdownButtonFormField`, membuat widget drop down button.
 * `SizedBox`, membuat fixed sized box.
-* `FutureBuilder`
-* `GestureDetector`
+* `FutureBuilder`, membangun suatu array berdasarkan snapshot interaksi terbaru.
+* `GestureDetector`, mendeteksi gesture.
+* `MaterialPageRoute`, membuat MaterialPageRoute yang isinya ditentukan Builder.
+* `ListView.builder`, membuat array of widgets yang dapat di-scroll.
 
 
 ## Mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter
@@ -48,8 +50,10 @@ Ya, pengambilan data JSON tanpa membuat model dapat dilakukan. JSON merupakan _o
 
 ## Cara implementasi checklist
 
-* Membuat dua file baru, yaitu watchList dan watchListDetail
-* Membuat file `budgetList.dart` yang mengambil data budget dari list pada form dan menampilkan daftar budget dalam bentuk cards.
-* Membuat file `drawer.dart` untuk drawer menu yang berisi navigasi ke laman counter_7, laman form menambahkan budget, dan laman tampilan daftar budget.
-* Melakukan import file `drawer.dart` ke file `main.dart`, `budgetForm.dart`, dan `budgetList.dart`.
-* Melakukan git add, commit, dan push ke dalam repositori GitHub.
+* Membuat file `watchList.dart` dan `watchListDetail.dart` yang berisi halaman watchlist dan detail dari setiap watchlist
+* Menambahkan dependency `http` untuk melakukan fetch data
+* Membuat model baru untuk mywatchlist pada file `watchItem.dart`
+* Membuat folder _data source_ dan menambahkan file `watchListDataSource.dart` berisi sumber data yang diakses secara remote
+* Menampilkan hasil GET request pada halaman watchList dengan widget FutureBuilder
+* Menambahkan widget `GestureDetector` yang mendeteksi click event dan menavigasikan halaman ke watchItemDetail
+* Menambahkan routing ke halaman watchList pada drawer
